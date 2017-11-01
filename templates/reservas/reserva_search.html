@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+Reservar Fotografo
+{% endblock title %}
+
+{% block contenido1 %}
+<script src="{% static 'datepicker/jquery-ui.js' %}"></script>
+<script src="{% static 'datepicker/jquery-ui.min.js' %}"></script>
+<script src="{% static 'datepicker/jquery/externel/jquery.js' %}"></script>
+<div class="light-wrapper">
+    <div class="container inner">
+      <div class="row">
+        <div class="col-md-11 col-md-offset-3">
+          <h2 class="section-title">  Crear reserva de fotografo</h2>
+          <h3> Reserva {{ tipo_reserva.nombre }} </h3>
+          <form class="form-inline" method="POST">
+            {% csrf_token %}
+            <label class="sr-only" for="fecha_desde">fecha desde</label>
+            <input type="date" name="fecha_desde" class="form-control mb-2 mr-sm-2 mb-sm-0 datepicker" id="fecha_desde" placeholder="Jane Doe">
+
+            <label class="sr-only" for="fecha_hasta">fecha hasta</label>
+            <input type="date" name="fecha_hasta" class="form-control mb-2 mr-sm-2 mb-sm-0 datepicker" id="fecha_hasta" placeholder="Jane Doe">
+            <input  type="hidden" name="tipo_reserva_id" value="{{ tipo_reserva.id }}" >
+
+            <button type="submit" >RESERVAR </button>
+
+          </form>
+        </div>
+
+    </div>
+</div>    
+
+	
+<link href="{% static 'datepicker/jquery-ui.css' %}" rel="stylesheet">
+<link href="{% static 'datepicker/jquery-ui.min.css' %}" rel="stylesheet">
+{% endblock contenido1 %}

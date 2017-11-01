@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+Reservar Fotografo
+{% endblock title %}
+
+{% block contenido1 %}
+<div class="light-wrapper">
+    <div class="container inner">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="section-title">  Crear Reserva</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>n_horas</th>
+                <th>lugar</th>
+                <th>tipo_evento</th>
+                <th>fotografo</th>
+                <th>cliente</th>
+                <th>fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for reserva in object_list %}
+                <tr>
+                  <td>{{reserva.n_horas}}</td>
+                  <td>{{reserva.lugar}}</td>
+                  <td>{{reserva.tipo_evento}}</td>
+                  <td>{{reserva.fotografo}}</td>
+                  <td>{{reserva.cliente}}</td>
+                  <td>{{reserva.fecha}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>    
+
+	
+
+{% endblock contenido1 %}

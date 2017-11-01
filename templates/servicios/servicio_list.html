@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+Servicios
+{% endblock title %}
+
+{% block contenido1 %}
+<div class="light-wrapper">
+    <div class="container inner">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="section-title">  Crear Servicio</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for servicio in object_list %}
+                <tr>
+                  <td>{{servicio.id}}</td>
+                  <td>{{servicio.nombre}}</td>
+                  <td>{{servicio.tipo_servicios}}</td>
+                  <td>{{servicio.valor}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>    
+
+	
+
+{% endblock contenido1 %}

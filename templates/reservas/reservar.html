@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+Reservar Fotografo 
+{% endblock title %}
+
+{% block contenido1 %}
+<script src="{% static 'datepicker/jquery-ui.js' %}"></script>
+<script src="{% static 'datepicker/jquery-ui.min.js' %}"></script>
+<script src="{% static 'datepicker/jquery/externel/jquery.js' %}"></script>
+<div class="light-wrapper">
+    <div class="container inner">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="section-title">  Reservar </h2>
+          <form class="form-inline" method="POST">
+            {% csrf_token %}
+               <table class="table ">
+                   <tr>
+                      <th>Fotografo Disponible</th>
+                      <th>Horas</th>
+                      <th>Días</th>
+                      <th>Precio</th>
+                      <th></th>
+                   </tr>
+                   {% for fotografo in fotografos %}
+                   <tr>
+                      <td>{{ fotografo.get_full_name }}</td>
+                      <td>
+                        <input type="number" name="hora" class="form-control" placeholder="Horas">
+                      </td>
+                      <td>
+                        <label class="sr-only" for="fecha">fecha </label>
+                        <input type="date" name="fecha" class="form-control mb-2 mr-sm-2 mb-sm-0 datepicker" id="fecha" placeholder="Jane Doe">
+                      </td>
+                      <td>
+                        {{precio_servicio}}
+                      </td>
+                      <td>
+                        <button>RESERVAR</button>
+                      </td>
+                   </tr>
+                  {% endfor %}
+                </table>
+                     
+            </select>
+
+          </form>
+        </div>
+    </div>
+</div>
+<link href="{% static 'datepicker/jquery-ui.css' %}" rel="stylesheet">
+<link href="{% static 'datepicker/jquery-ui.min.css' %}" rel="stylesheet">
+{% endblock contenido1 %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+Proformar
+{% endblock title %}
+
+{% block contenido1 %}
+<div class="light-wrapper">
+    <div class="container inner">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="section-title">  Proformar </h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Servico</th>
+                <th style="text-align:center">Cantidad</th>
+                <th style="text-align:center">Costo unit</th>
+                <th style="">Costo Total</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in cart %}
+		        <tr>
+		            <td>{{ item.product.nombre }}</td>
+		            <td width="10%">
+					         <input class="cantidad" item_id="{{ item.product.id }}" type="number" id="cant{{ item.product.id }}" value="{{ item.quantity }}">
+		            </td>
+		            <td align="center" id="valor{{ item.product.id }}">{{ item.unit_price }}</td>
+		            <td id="total{{ item.product.id }}">{{ item.total_price }}</td>
+		            <td>
+		           		<a href="{% url 'servicio:remove_from_cart' item.product.id %}" class="btn" role="button">Eliminar</a>
+		            </td>
+		            <td>{{ item. }}</td>
+		        </tr>
+
+       		 {% endfor %}
+       		  <td>
+	          		<a href="{% url 'home:realizar_proformas' %}" class="btn" role="button">Añadir</a>
+	          </td>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>    
+<script src="{% static 'js/jquery.min.js' %}"></script>
+
+<script type="text/javascript">
+	$('.cantidad').change(function(){
+		console.log("sumando item");
+        var item_id=$(this).attr("item_id");
+        console.log("item_id:"+item_id);
+        var valor=parseFloat($("#valor"+item_id).text());
+        console.log("valor:"+valor);
+        var cantidad=+$("#cant"+item_id).val();
+        // $("#cant"+item_id).val(cantidad);
+        console.log("cantidad: "+cantidad);
+        
+        var total= valor*cantidad;
+        console.log ("total:"+total);
+
+         $("#total"+item_id).text(total.toFixed(2));
+	});
+
+</script>
+{% endblock contenido1 %}

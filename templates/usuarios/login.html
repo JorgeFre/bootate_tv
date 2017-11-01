@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+Login
+{% endblock title %}
+
+{% block contenido1 %}
+<div class="light-wrapper">
+    <div class="container inner">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="section-title">  Autentificación</h2>
+           <form method="POST">
+           {% csrf_token %}
+             <label>usuario</label>
+             <input name="username"type="text">
+               
+             </input>
+             <label>password</label>
+             <input name="password"type="password">
+               
+             </input>
+             <button type="submit">login</button>
+           </form>
+            <a href="{% url 'auth_password_reset'%}">Olvide mi contraseña:</a>
+        </div>
+    </div>
+</div>    
+{% endblock contenido1 %}

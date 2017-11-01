@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+Crear usuario
+{% endblock title %}
+
+{% block contenido1 %}
+<div class="light-wrapper">
+    <div class="container inner">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="section-title">  Crear Usuario</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>C_I_persona</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Celular</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Genero</th>
+                <th>Fecha_ingreso</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for usuario in object_list %}
+                <tr>
+                  <td>{{usuario.C_I_persona}}</td>
+                  <td>{{usuario.nombres}}</td>
+                  <td>{{usuario.apellidos}}</td>
+                  <td>{{usuario.celular}}</td>
+                  <td>{{usuario.direccion}}</td>
+                  <td>{{usuario.telefono}}</td>
+                  <td>{{usuario.genero}}</td>
+                  <td>{{usuario.fecha_ingreso}}</td>
+                  <td>{{usuario.estado}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>    
+{% endblock contenido1 %}
+	

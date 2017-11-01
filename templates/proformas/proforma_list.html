@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+Proformas
+{% endblock title %}
+
+{% block contenido1 %}
+<div class="light-wrapper">
+    <div class="container inner">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="section-title">  Proformar </h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Tipo_proformas</th>
+                <th>Subtotal</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for proforma in object_list %}
+                <tr>
+                  <td>{{proforma.fecha}}</td>
+                  <td>{{proforma.tipo_proformas}}</td>
+                  <td>{{proforma.subtotal}}</td>
+                  <td>{{proforma.total}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>    
+{% endblock contenido1 %}
+	
+
