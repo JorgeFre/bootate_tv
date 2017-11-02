@@ -26,7 +26,7 @@
   <nav class="navbar solid dark fixed">
     <div class="navbar-header">
       <div class="basic-wrapper"> 
-        <div class="navbar-brand"> <a href="index.html"><img src="#" srcset="{% static 'img/logo101.jpg' %}, {% static 'img/logo101@2x.jpg' %}" class="logo-light" alt="" /><img src="#" srcset="{% static 'img/logo101.jpg' %}, {% static 'img/logo101.jpg@2x' %}" class="logo-dark" alt="" /></a> </div>
+        <div class="navbar-brand"> <a href="{% url 'home:inicio' %}"><img src="#" srcset="{% static 'img/logo101.jpg' %}, {% static 'img/logo101@2x.jpg' %}" class="logo-light" alt="" /><img src="#" srcset="{% static 'img/logo101.jpg' %}, {% static 'img/logo101.jpg@2x' %}" class="logo-dark" alt="" /></a> </div>
         <a class="btn responsive-menu" data-toggle="collapse" data-target=".navbar-collapse"><i></i></a>
       </div>
       <!-- /.basic-wrapper -->  
@@ -53,7 +53,7 @@
 
         <li class="dropdown"><a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown">Reservación & Proformas <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{% url 'home:realizar_proformas' %}">Reservar Fotografo</a></li>
+            <li><a href="{% url 'home:realizar_proformas' %}">Reservar Fotógrafo</a></li>
             <li><a href="{% url 'home:proformar' %}">Realizar Proformas</a></li>
           </ul>
         </li>
