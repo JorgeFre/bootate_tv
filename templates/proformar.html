@@ -1,70 +1,53 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block title %}
-Servicios 
+Proformar
 {% endblock title %}
 
 {% block contenido1 %}
 
-
- <div class="offset"></div>
-  <div class="light-wrapper">
+  
+  <div class="dark-wrapper">
     <div class="container inner">
-      <div class="thin">
-        <h3 class="section-title text-center">Reservación de Fotografos</h3>
-        <p class="text-center">Dirección de todo tipo de videos, videos extremos, eventos sociales,cortometrajes, documentales, y fotografía de todo tipo de evento, en los últimos años nos hemos destacado por el diseño y desarrollo de formatos audiovisuales de entretenimiento de diferentes géneros (documental, servicio público y actualidad).</p>
-      </div>
-      <!-- /.thin -->
-      <div class="divide10"></div>
+      <h3 class="section-title text-center" id="proformas">Proforma Nuestros Precios</h3>
       <div class="row">
-        <div class="col-sm-4">
-          <div class="caption-overlay">
-            <figure><a href="{% url 'reserva:reservar' 1 %}"><img src="{% static 'img/art/still350.jpg' %}" alt="" /> </a></figure>
-            <div class="caption bottom-right">
-              <div class="title">
-                <h3 class="main-title layer">Photography de Campo</h3>
-              </div>
-              <!--/.title --> 
+      {% for servicio in servicios %}
+        <div class="col-sm-6 col-md-3">
+          <div class="pricing panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{servicio.nombre}}</h3>
+              <div class="price"> <span class="price-currency">$</span> <span class="price-value">{{servicio.valor}}</span> </div>
             </div>
-            <!--/.caption --> 
-          </div>
-        </div>
-        <!-- /column -->
-        <div class="col-sm-4">
-          <div class="caption-overlay">
-            <figure><a href="{% url 'reserva:reservar' 3 %}"><img src="{% static 'img/art/diario350.jpg' %}" alt="" /> </a></figure>
-            <div class="caption bottom-right">
-              <div class="title">
-                <h3 class="main-title layer">Photography Extrema</h3>
-              </div>
-              <!--/.title --> 
+            <!--/.panel-heading -->
+            <div class="panel-body">
+              <table class="table">
+                {% for caracteristica in servicio.caracteristica_set.all %}
+                <tr>
+                  <td><strong>1</strong> {{caracteristica.descripcion}} </td>
+                </tr>
+            
+              </table>
+                {% endfor %}
             </div>
-            <!--/.caption --> 
+            <!--/.panel-body -->
+            <div class="panel-footer">
+             <a href="{% url 'servicio:add_to_cart' servicio.id 1 %}" class="btn" role="button">Proformar</a>
+             </div>
           </div>
+          <!--/.pricing --> 
         </div>
-        <!-- /column -->
-        <div class="col-sm-4">
-          <div class="caption-overlay">
-            <figure><a href="{% url 'reserva:reservar' 2 %}"><img src="{% static 'img/art/evento.jpg' %}" alt="" /> </a></figure>
-            <div class="caption bottom-right">
-              <div class="title">
-                <h3 class="main-title layer">Photography de Evento Social</h3>
-              </div>
-              <!--/.title --> 
-            </div>
-            <!--/.caption --> 
-          </div>
-        </div>
-        <!-- /column --> 
+      {% endfor %}
+        <!--/column -->
+       
       </div>
-      <!-- /.row --> 
+      <!--/.row --> 
       
     </div>
-    <!-- /.container --> 
+    <!--/.container --> 
   </div>
-  <!-- /.light-wrapper -->
-  
-  <div class="outer-wrap inverse-wrapper">
+  <!-- /.dark-wrapper -->
+
+   <div class="outer-wrap inverse-wrapper">
     <div id="video-wrap" class="video-wrap">
       <video preload="metadata" autoplay loop id="video-office">
         <source src="{% static 'video/Rally Ecuador.mp4' %}" type="video/mp4">
@@ -80,9 +63,6 @@ Servicios
     </div>
     <!-- /.video-wrap --> 
   </div>
-  <!-- /.inverse-wrapper -->
-  
-
   
   <div class="light-wrapper">
     <div class="container inner">

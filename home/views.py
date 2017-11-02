@@ -24,3 +24,16 @@ def contactos(request):
 
 def reservar(request):
 	return render(request,'reservas/reservar.html',{})
+
+
+
+
+def proformar(request):
+	servicios = Servicio.objects.all()
+	return render(request,'proformar.html',{'servicios': servicios})
+
+
+
+def servicios(request):
+	servicios = Servicio.objects.all()
+	return render(request,'servicios.html',{'servicios': servicios})

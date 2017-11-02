@@ -41,22 +41,24 @@
         <li class="dropdown">
             <a href="{% url 'home:quienes_somos' %}">Quienes Somos</a>
 
-        </li>    
+        <!-- </li>    
         <li class="dropdown">
             <a href="{% url 'home:mostrar_servicios' %}">Servicios</a>
-        </li>
+        </li> -->
+
+        </li>    
         <li class="dropdown">
-            <a href="{% url 'home:realizar_proformas' %}">Reservaciones de fotografos</a>
+            <a href="{% url 'home:servicios' %}">Servicios</a>
+        </li>
+
+        <li class="dropdown"><a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown">Reservación & Proformas <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="blog.html">Grid Blog</a></li>
-            <li><a href="blog2.html">Grid Blog with Sidebar</a></li> 
-            <li><a href="blog3.html">Magazine</a></li>
-            <li><a href="blog4.html">Magazine No Sidebar</a></li>
-            <li><a href="blog-post.html">Blog Post</a></li>
-            <li><a href="blog-post2.html">Blog Post No Sidebar</a></li>
+            <li><a href="{% url 'home:realizar_proformas' %}">Reservar Fotografo</a></li>
+            <li><a href="{% url 'home:proformar' %}">Realizar Proformas</a></li>
           </ul>
         </li>
-        </li>
+
+        <!-- </li> -->
         <!-- <li class="dropdown">
             <a href="{% url 'home:realizar_reservaciones' %}">Reservaciones</a>
           <ul class="dropdown-menu">
