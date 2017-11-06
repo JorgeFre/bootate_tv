@@ -5,6 +5,8 @@ Reservar Fotografo
 {% endblock title %}
 
 {% block contenido1 %}
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{% static 'datepicker/jquery-ui.js' %}"></script>
 <script src="{% static 'datepicker/jquery-ui.min.js' %}"></script>
 <script src="{% static 'datepicker/jquery/externel/jquery.js' %}"></script>
@@ -12,32 +14,46 @@ Reservar Fotografo
     <div class="container inner">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h2 class="section-title">  Reservar </h2>
-          <form class="form-inline" method="POST">
-            {% csrf_token %}
+          <h2 class="section-title">  Reservar {{ tipo_reserva.nombre }} </h2>
                <table class="table ">
                    <tr>
                       <th>Fotografo Disponible</th>
                       <th>Horas</th>
                       <th>Días</th>
+                      <th>Lugar</th>
                       <th>Precio</th>
-                      <th></th>
                    </tr>
                    {% for fotografo in fotografos %}
                    <tr>
-                      <td>{{ fotografo.get_full_name }}</td>
-                      <td>
-                        <input type="number" name="hora" class="form-control" placeholder="Horas">
+                      <td >{{ fotografo.get_full_name }}</td>
+                      <td >
+                        <input contador_fila="{{ forloop.counter }}"  class="hora" type="number" name="hora" class="form-control" placeholder="Horas">
+                      </td>
+                      <td width="10%">
+                        {{ n_dias }}
+                        <!-- <label class="sr-only" for="fecha">fecha </label>
+                        <input type="date" name="fecha" class="form-control mb-2 mr-sm-2 mb-sm-0 datepicker" id="fecha" placeholder="Jane Doe"> -->
                       </td>
                       <td>
-                        <label class="sr-only" for="fecha">fecha </label>
-                        <input type="date" name="fecha" class="form-control mb-2 mr-sm-2 mb-sm-0 datepicker" id="fecha" placeholder="Jane Doe">
+                        <input contador_fila="{{ forloop.counter }}" class="lugar" type="text" name="lugar" class="form-control" placeholder="Lugar">
                       </td>
                       <td>
                         {{precio_servicio}}
                       </td>
                       <td>
-                        <button>RESERVAR</button>
+                        <form method="POST" action="{% url 'reserva:guardar' %}">
+                          {% csrf_token %}
+
+                          <input  type="hidden" name="fotografo" value="{{ fotografo.id }}" >
+                          <input  id="hora_hidden{{ forloop.counter }}" type="hidden" name="hora_hidden" >
+                          <input  type="hidden" name="dias" value="{{ n_dias }}" >
+                          <input  id="lugar_hidden{{ forloop.counter }}" type="hidden" name="lugar_hidden" >
+                          <input  type="hidden" name="precio" value="{{ precio_servicio }}" >
+                          <input  type="hidden" name="tipo_servicio_id" value="{{ tipo_reserva.id }}" >
+
+                        
+                          <input  type="submit" value="guardar">
+                         </form>
                       </td>
                    </tr>
                   {% endfor %}
@@ -45,10 +61,26 @@ Reservar Fotografo
                      
             </select>
 
-          </form>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+  $('.hora').change(function(){
+    var hora=$(this).val();
+    var contador_fila=$(this).attr('contador_fila');
+    // envio de valores a hidden
+    $('#hora_hidden'+contador_fila).val(hora);
+  });
+
+  $('.lugar').change(function(){
+    var lugar=$(this).val();
+    var contador_fila=$(this).attr('contador_fila');
+    // envio de valores a hidden
+    $('#lugar_hidden'+contador_fila).val(lugar);
+  });
+
+
+</script>
 <link href="{% static 'datepicker/jquery-ui.css' %}" rel="stylesheet">
 <link href="{% static 'datepicker/jquery-ui.min.css' %}" rel="stylesheet">
 {% endblock contenido1 %}

@@ -8,6 +8,7 @@ urlpatterns = [
 	url(r'^(?P<pk>\d+)$', views.ReservaDetail.as_view(), name='detail'),
 	url(r'^new$', views.ReservaCreate.as_view(), name='new'),
 	url(r'^buscar$', views.reserva_buscar, name='buscar'),
+	url(r'^guardar$', views.reserva_guardar, name='guardar'),
 	url(r'^reservar/(?P<tipo_reserva_id>\d+)$', views.reserva_reservar, name='reservar'),
 
 

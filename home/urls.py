@@ -15,6 +15,7 @@ urlpatterns = [
 	url(r'^realizar_reservaciones/$',views.realizar_reservaciones, name='realizar_reservaciones'),
 	url(r'^contactos/$',views.contactos, name='contactos'),
 	url(r'^reservar/$',views.reservar, name='reservar'),
+	url(r'^enviar_mail/$',views.enviar_mail, name='enviar_mail'),
 
 
 

@@ -10,6 +10,7 @@ from cart.cart import Cart
 
 
 class ServicioCreate(CreateView):
+    """ En esta clase presentamos una vista con campos oblifatorios para obtener los atributos """
     model = Servicio
     form_class = ServicioForm
     success_url = reverse_lazy('servicio:list')
@@ -20,6 +21,8 @@ class ServicioUpdate(UpdateView):
     model = Servicio
 
 class ServicioDetail(DetailView):
+    """ En esta clase presentamos los detalles de servicios con campos inactivos de los atributos """
+
     model = Servicio 
 
 class AuthorDelete(DeleteView):
@@ -27,7 +30,8 @@ class AuthorDelete(DeleteView):
     success_url = reverse_lazy('servicio-list')
 
 class ServicioList(ListView):
-	model = Servicio		
+    """ En esta clase de vistas de servicios, listamos todas los detalles de un servicio """
+    model = Servicio		
 
 
 def add_to_cart(request, servicio_id, quantity):

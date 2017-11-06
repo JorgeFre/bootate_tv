@@ -5,6 +5,8 @@ from django.db import models
 # Create your models here.
 
 class Proforma(models.Model):
+    """ La clase proformar guarada todos los datos de tipos de proformas que puede realizar el cliente """
+
     TIPO_PROFORMAS = (
         ('S','s_individuales'),
         ('R','r_servicios'),

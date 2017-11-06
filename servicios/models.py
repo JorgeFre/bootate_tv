@@ -5,6 +5,7 @@ from django.db import models
 # Create your models here.
 
 class Servicio(models.Model):
+    """ En esta clase presentamos los servicios por tipos de los mismos  """
     TIPO_SERVICIOS = (
         ('S_I','s_individuales'),
         ('R_S','r_servicios'),
@@ -20,6 +21,7 @@ class Servicio(models.Model):
 
 
 class Caracteristica(models.Model):
+    """ En esta clase presentamos el nombre y descripciones de los tipos de servicios """
     servicio = models.ForeignKey(Servicio, on_delete=models.CASCADE)
     descripcion = models.CharField(max_length=50)
 

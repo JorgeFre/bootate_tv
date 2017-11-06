@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^proformas/', include('proformas.urls', namespace='proforma')),
     url(r'^reservas/', include('reservas.urls', namespace='reserva')),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls'))
 
 
 

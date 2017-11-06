@@ -5,14 +5,15 @@ from django.db import models
 # Create your models here.
 
 class Usuario(models.Model):
+    """ En esta clase presentamos los tipo de usuarios, estos pueden ser usuarios o clientes con sus atributos """
     TIPO_USUARIOS = (
         ('U','usuarios'),
         ('C','clientes'),
     )
     C_I_persona = models.CharField(max_length=10)
     tipo_usuarios = models.CharField(max_length=12, choices=TIPO_USUARIOS)
-    nombres = models.CharField(max_length=60)
-    apellidos = models.CharField(max_length=60)
+    nombres = models.CharField(max_length=80)
+    apellidos = models.CharField(max_length=80)
     celular = models.CharField(max_length=10)
     direccion = models.CharField(max_length=160)
     telefono = models.CharField(max_length=7)

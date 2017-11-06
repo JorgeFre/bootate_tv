@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -11,7 +11,7 @@ from django.contrib import messages
 
 
 class UsuarioCreate(CreateView):
-    model = Usuario
+    """ En esta clase presentamos una vista con campos oblifatorios para obtener los atributos de usuario """
     form_class = UsuarioForm
     success_url = reverse_lazy('usuario:list')
 
@@ -21,6 +21,7 @@ class UsuarioUpdate(UpdateView):
     model = Usuario
 
 class UsuarioDetail(DetailView):
+    """ En esta clase presentamos los detalles de usuarios con campos inactivos de los atributos """
     model = Usuario 
 
 class AuthorDelete(DeleteView):
@@ -28,7 +29,8 @@ class AuthorDelete(DeleteView):
     success_url = reverse_lazy('usuario-list')
 
 class UsuarioList(ListView):
-	model = Usuario	
+    """ En esta clase de vistas de usuarios, listamos todas los detalles de un usuario """
+    model = Usuario	
 
 """def autenticar(request):
 	print (request.user)
@@ -55,7 +57,8 @@ class UsuarioList(ListView):
 	"""
 
 
-def autenticar(request):     
+def autenticar(request):  
+    response= HttpResponseRedirect(request.GET.get('next'))   
     if request.method == 'POST':
         print("AUTENTICANDO")
         username  = request.POST.get('username', None)
@@ -63,7 +66,8 @@ def autenticar(request):
         user = authenticate(username = username, password = password)
         if user is not None:
             login(request, user)
-            return redirect("home:inicio")
+            # return redirect("proformar:proformar")
+            return response
         else:
             messages.error(request, 'Credenciales invalidas')
             return render(request, 'usuarios/login.html', {})

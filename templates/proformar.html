@@ -6,6 +6,8 @@ Proformar
 
 {% block contenido1 %}
 
+<link href="{% static 'css/botate.css' %}" rel="stylesheet">
+
   
   <div class="dark-wrapper">
     <div class="container inner">
@@ -46,9 +48,9 @@ Proformar
     <!--/.container --> 
   </div>
   <!-- /.dark-wrapper -->
+  
 
-
-   <div class="outer-wrap inverse-wrapper">
+   <div data-volume="mute"class="outer-wrap inverse-wrapper">
     <div id="video-wrap" class="video-wrap">
       <video preload="metadata" autoplay loop id="video-office">
         <source src="{% static 'video/Aguilas.mp4' %}" type="video/mp4">
@@ -64,12 +66,12 @@ Proformar
     </div>
     
     <audio id="video-wrap" src="{% static 'video/Aguilas.mp4' %}"></audio>
-<div>
-  <button onclick="{% static 'video/Aguilas.mp4' %}.getElementById('video-wrap').pause()">Pausar el Audio</button>
-  <button onclick="document.getElementById('video-wrap').volume+=0.1">Aumentar el Volumen</button>
-  <button onclick="document.getElementById('video-wrap').volume-=0.1">Disminuir el Volumen</button>
-  <button onclick="document.getElementById('video-wrap').play()">Reproducir el Audio</button>
-</div>
+      <div>
+        <button onclick="document.getElementById('video-wrap').pause()">Pausar el Audio</button>
+        <button onclick="document.getElementById('video-wrap').volume+=0.1">Aumentar el Volumen</button>
+        <button onclick="document.getElementById('video-wrap').volume-=0.1">Disminuir el Volumen</button>
+        <button onclick="document.getElementById('video-wrap').play()">Reproducir el Audio</button>
+      </div>
     <!-- /.video-wrap --> 
   </div>
   
@@ -78,30 +80,30 @@ Proformar
       <div class="row">
         <div class="col-sm-6">
           <h3>Nuestros servicios destacados</h3>
-          <p>Fotografía de modelos, dirección de videos extremos, documentales, cotometrajes y fotografía panorámica.</p>
+          <p class="text_about">Fotografía de modelos, dirección de videos extremos, documentales, cotometrajes y fotografía panorámica.</p>
           <div class="feature">
             <div class="icon"> <i class="budicon-camera-1 icn"></i> </div>
             <h4>Photography</h4>
-            <p>Diseño fotográfico & Habilidades en photo shoots en fotografía de estudio, dirección de fotografía de grupo</p>
+            <p class="text_about">Diseño fotográfico & Habilidades en photo shoots en fotografía de estudio, dirección de fotografía de grupo</p>
           </div>
           <!--/.feature -->
           <div class="feature">
             <div class="icon"> <i class="budicon-video-1 icn"></i> </div>
             <h4>Motion Video</h4>
-            <p>Gran conocimiento de video digital, dirección de cortometrajes, todos los formatos de video. Editoras y conocimiento de iluminación.</p>
+            <p class="text_about">Gran conocimiento de video digital, dirección de cortometrajes, todos los formatos de video. Editoras y conocimiento de iluminación.</p>
           </div>
           <!--/.feature -->
           <div class="feature">
             <div class="icon"> <i class="budicon-radio icn"></i> </div>
             <h4>Sound Design</h4>
-            <p>El diseño de sonido es una de las áreas más importantes en una producción audiovisual, la interacción entre audio y video debe complementarse de tal forma que el espectador logre involucrarse por completo.</p>
+            <p class="text_about">El diseño de sonido es una de las áreas más importantes en una producción audiovisual, la interacción entre audio y video debe complementarse de tal forma que el espectador logre involucrarse por completo.</p>
           </div>
           <!--/.feature --> 
         </div>
         <!--/column -->
         <div class="col-sm-6">
           <h3>Porque elegirnos?</h3>
-          <p>Excelente conocimiento de Fotografía, métodos y nuevas tecnologías de videos. Fuerte conocimiento y habilidad para usar variedad de cámaras y equipos, todos los formatos de video, editoras y conocimiento de iluminación.</p>
+          <p class="text_about">Excelente conocimiento de Fotografía, métodos y nuevas tecnologías de videos. Fuerte conocimiento y habilidad para usar variedad de cámaras y equipos, todos los formatos de video, editoras y conocimiento de iluminación.</p>
           <div class="tabs tabs-top left tab-container">
             <ul class="etabs">
               <li class="tab"><a href="#tab-1">This is</a></li>
@@ -112,7 +114,7 @@ Proformar
             <!-- /.etabs -->
             <div class="panel-container">
               <div class="tab-block" id="tab-1">
-                <p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                <p class="text_about">Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                 <p>Donec sed odio dui. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum.</p>
                 <ul class="circled">
                   <li>Mauris lacinia dui non metus dignissim venenatis.</li>
@@ -122,16 +124,16 @@ Proformar
               </div>
               <!-- /.tab-block -->
               <div class="tab-block" id="tab-2">
-                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. </p>
+                <p class="text_about">Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. </p>
               </div>
               <!-- /.tab-block -->
               <div class="tab-block" id="tab-3">
-                <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. </p>
+                <p class="text_about">Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. </p>
                 <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </p>
               </div>
               <!-- /.tab-block -->
               <div class="tab-block" id="tab-4">
-                <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+                <p class="text_about">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
                 <p>Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui.</p>
               </div>
               <!-- /.tab-block --> 

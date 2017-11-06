@@ -29,8 +29,8 @@ ALLOWED_HOSTS = []
 EMAIL_USE_TLS =True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER ='j19andres93@gmail.com'
-EMAIL_HOST_PASSWORD ='j.a.f.o 1993'
+EMAIL_HOST_USER ='espinozap430@gmail.com'
+EMAIL_HOST_PASSWORD ='emelec1992'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admindocs',
     'usuarios',
     'ProductoraTV',
     'servicios',
@@ -53,6 +54,8 @@ INSTALLED_APPS = [
     'cart',
     'registration',
     'crispy_forms',
+    'bootstrap3',
+
 
 ]
 
@@ -148,8 +151,8 @@ STATICFILES_DIRS=(os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 
-LOGIN_REDIRECT_URL = '/index/'
-LOGIN_URL = '/login/'
+# LOGIN_REDIRECT_URL = '/index/'
+LOGIN_URL = '/usuarios/login/'
 
 JET_DEFAULT_THEME = 'light-gray'
 JET_THEMES = [

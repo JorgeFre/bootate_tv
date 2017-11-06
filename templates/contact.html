@@ -6,6 +6,7 @@ Contactos
 
 {% block contenido1 %}
 
+<link href="{% static 'css/botate.css' %}" rel="stylesheet">
 
   <!-- /.navbar -->
   
@@ -16,8 +17,8 @@ Contactos
   var map;
   function init() {
       var mapOptions = {
-          center: new google.maps.LatLng(-3.9968278,-79.1981497),
-          zoom: 15,
+          center: new google.maps.LatLng(-3.996758, -79.19806),
+          zoom: 17,
           zoomControl: true,
           zoomControlOptions: {
               style: google.maps.ZoomControlStyle.DEFAULT,
@@ -39,7 +40,7 @@ Contactos
       var mapElement = document.getElementById('map');
       var map = new google.maps.Map(mapElement, mapOptions);
       var locations = [
-          ['Boudewijn Ostenstraat 2', -3.99313,-79.20422]
+          ['Boudewijn Ostenstraat 2', -3.996758, -79.19806]
       ];
       for (i = 0; i < locations.length; i++) {
           marker = new google.maps.Marker({
@@ -55,15 +56,16 @@ Contactos
       <div class="row">
         <div class="col-sm-8">
           <h2 class="section-title">  Contáctanos</h2>
-          <p>Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus.</p>
+          <p class="text_about">Puedes utilizar este medio de comunicación para recomendaciones o sugerencias, para seguir mejorando en nuestro servicios.</p>
           <div class="divide10"></div>
           <div class="form-container">
-            <form action="contact/vanilla-form.php" method="post" class="vanilla vanilla-form" novalidate="novalidate">
+          {% csrf_token %}
+            <form action="{% url 'home:enviar_mail' %}" method="post" class="vanilla vanilla-form" novalidate="novalidate">
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-field">
                     <label>
-                      <input type="text" name="name" placeholder="Your name" required="required">
+                      <input type="text" name="name" placeholder="Nombres" required="required">
                     </label>
                   </div>
                   <!--/.form-field --> 
@@ -72,7 +74,7 @@ Contactos
                 <div class="col-sm-6">
                   <div class="form-field">
                     <label>
-                      <input type="email" name="email" placeholder="Your e-mail" required="required">
+                      <input type="email" name="email" placeholder="e-mail" required="required">
                     </label>
                   </div>
                   <!--/.form-field --> 
@@ -81,42 +83,33 @@ Contactos
                 <div class="col-sm-6">
                   <div class="form-field">
                     <label>
-                      <input type="tel" name="tel" placeholder="Phone">
+                      <input type="tel" name="tel" placeholder="Teléfono">
                     </label>
                   </div>
                   <!--/.form-field --> 
                 </div>
                 <!--/column -->
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                   <div class="form-field">
                     <label class="custom-select">
                       <select name="department" required="required">
-                        <option value="">Select Department</option>
-                        <option value="Sales">Sales</option>
+                        <option value="">Selecione Departamento</option>
+                        <option value="Sales">Fotógrafos</option>
                         <option value="Marketing">Marketing</option>
-                        <option value="Support">Customer Support</option>
-                        <option value="Other">Other</option>
+                        <option value="Support">Servicios</option>
+                        <option value="Other">Otros</option>
                       </select>
-                      <span><!-- fake select handler --></span> </label>
+                      <span><!-- fake select handler</span> </label>
                   </div>
                   <!--/.form-field --> 
-                </div>
                 <!--/column --> 
               </div>
               <!--/.row -->
-              <textarea name="message" placeholder="Type your message here..." required="required"></textarea>
+              <textarea name="message" placeholder="Tipo de recomendación" required="required"></textarea>
               <div class="radio-set">
                 <label>Subject:</label>
-                <label>
-                  <input type="radio" name="subject" value="General">
-                  <span><!-- fake radio --></span> General</label>
-                <label>
-                  <input type="radio" name="subject" value="Hi">
-                  <span><!-- fake radio --></span> Say Hi</label>
-                <label>
-                  <input type="radio" name="subject" value="Other">
-                  <span><!-- fake radio --></span> Other</label>
-              </div>
+                <input type="text" name"subject">
+              
               <!--/.radio-set -->
               <input type="submit" class="btn" value="Send" data-error="Fix errors" data-processing="Sending..." data-success="Thank you!">
               <footer class="notification-box"></footer>
@@ -131,13 +124,13 @@ Contactos
         <aside class="col-sm-4">
           <div class="sidebox widget">
             <h3 class="widget-title">Dirección</h3>
-            <p>Fusce dapibus, tellus commodo, tortor mauris condimentum utellus fermentum, porta sem malesuada magna. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur.</p>
+            <p class="text_about">10 de agosto entre avenida emiliano ortega y y 24 de mayo.</p>
             <address>
-            <strong>Kwoon, Inc.</strong><br>
+            <!-- <strong>Kwoon, Inc.</strong><br>
             Moon Street Light Avenue, 14/05 <br>
-            Jupiter, JP 80630<br>
-            <abbr title="Phone">P:</abbr> 00 (123) 456 78 90 <br>
-            <abbr title="Email">E:</abbr> <a href="mailto:#">first.last@email.com</a>
+            Jupiter, JP 80630<br> -->
+            <abbr title="Phone">Phone:</abbr> 2 581412 <br>
+            <abbr title="Email">@:</abbr> <a href="mailto:#">jhtfilms76@hotmail.com</a>
             </address>
           </div>
           <!-- /.widget --> 
