@@ -52,8 +52,8 @@ Proformar
 
    <div data-volume="mute"class="outer-wrap inverse-wrapper">
     <div id="video-wrap" class="video-wrap">
-      <video preload="metadata" autoplay loop id="video-office">
-        <source src="{% static 'video/Aguilas.mp4' %}" type="video/mp4">
+      <video preload="auto" autoplay loop id="video-bootate" controls="" muted="">
+        {# <source src="{% static 'video/Aguilas.mp4' %}" type="video/mp4"> #}
         <source src="{% static 'video/Aguilas.webm' %}" type="video/webm">
       </video>
       <div class="">
@@ -65,13 +65,6 @@ Proformar
       <!-- /.container --> 
     </div>
     
-    <audio id="video-wrap" src="{% static 'video/Aguilas.mp4' %}"></audio>
-      <div>
-        <button onclick="document.getElementById('video-wrap').pause()">Pausar el Audio</button>
-        <button onclick="document.getElementById('video-wrap').volume+=0.1">Aumentar el Volumen</button>
-        <button onclick="document.getElementById('video-wrap').volume-=0.1">Disminuir el Volumen</button>
-        <button onclick="document.getElementById('video-wrap').play()">Reproducir el Audio</button>
-      </div>
     <!-- /.video-wrap --> 
   </div>
   

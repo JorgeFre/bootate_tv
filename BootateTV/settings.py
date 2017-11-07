@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
+    'gunicorn',
+    'dj_database_url',
     'usuarios',
     'ProductoraTV',
     'servicios',
@@ -96,8 +98,12 @@ WSGI_APPLICATION = 'BootateTV.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'BOOTATETV',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'BOOTATETV_db',
+        # 'NAME': 'BOOTATETV',
         'USER': 'root',
         'PASSWORD': 'jafo1993',
         'HOST': '127.0.0.1',
@@ -188,3 +194,18 @@ JET_THEMES = [
     },
 
 ]
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
+
+DEBUG = True
+
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
