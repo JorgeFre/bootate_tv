@@ -1,1 +1,1 @@
-web: gunicorn bootate_tv.wsgi
+web: gunicorn BootateTV.wsgi
