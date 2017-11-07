@@ -16,7 +16,7 @@ def quienes_somos(request):
 def mostrar_servicios(request):
 	return render(request,'services.html',{})
 
-@login_required()
+# @login_required()
 def realizar_proformas(request):
 	servicios = Servicio.objects.all()
 	return render(request,'services.html',{'servicios': servicios})	
