@@ -149,15 +149,22 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+# STATICFILES_DIRS = (
+#     os.path.join(PROJECT_ROOT, 'static'),
+# )
 
-STATICFILES_DIRS=(os.path.join(BASE_DIR, 'static'),)
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
 
-#STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-MEDIA_URL="/media/"
-MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
+
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
 
 # LOGIN_REDIRECT_URL = '/index/'
 LOGIN_URL = '/usuarios/login/'
