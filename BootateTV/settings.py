@@ -100,9 +100,9 @@ WSGI_APPLICATION = 'BootateTV.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'ENGINE': 'django.db.backends.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
         # 'ENGINE': 'django.db.backends.mysql',
         'NAME': 'BOOTATETV_db',
         # 'NAME': 'BOOTATETV',
@@ -153,9 +153,9 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(PROJECT_ROOT, 'static'),
+# )
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
@@ -165,6 +165,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
+
 
 # LOGIN_REDIRECT_URL = '/index/'
 LOGIN_URL = '/usuarios/login/'
